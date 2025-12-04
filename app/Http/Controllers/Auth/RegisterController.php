@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
@@ -24,14 +25,14 @@ class RegisterController extends Controller
             'password_confirmation' => 'required|alpha_num'
         ]);
 
-        $users=User::with('chirp')->create([
-            'name'=>$validate['name'],
-            'email'=>$validate['email'],
-            'password'=>Hash::make($validate['password']),
+        $users = User::with('chirp')->create([
+            'name' => $validate['name'],
+            'email' => $validate['email'],
+            'password' => Hash::make($validate['password']),
         ]);
 
-        auth()->login($users);
+        Auth::login($users);
 
-        return redirect('/')->with('success','Registered Successful');
+        return redirect('/')->with('success', 'Registered Successful');
     }
 }

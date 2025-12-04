@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "*.blade.php": "blade"
+    },
+    "[blade]": {
+        "editor.semanticHighlighting.enabled": true
+    },
+    "editor.cursorBlinking": "smooth",
+    "editor.cursorSmoothCaretAnimation": "on"
+}
